@@ -1,0 +1,19 @@
+{
+  "name": "secretshield",
+  "version": "1.0.0",
+  "bin": {
+    "secretshield": "./bin/index.js"
+  },
+  "description": "",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^4.1.2"
+  }
+}
