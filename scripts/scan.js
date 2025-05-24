@@ -53,14 +53,20 @@ function scanFilesForSecrets(files = []) {
   for (const filePath of files) {
     try {
       const content = fs.readFileSync(filePath, 'utf-8');
+      const lines = content.split('\n');
+      let fileHasSecret = false;
+      console.log(chalk.green('🔍 SecretShield scanning staged file... ', filePath));
 
-      for (let pattern of secretPatterns) {
-        if (pattern.test(content)) {
-          console.log(chalk.red(`🚨 Possible secret found in ${filePath}`));
-          found = true;
-          break;
+      lines.forEach((line, idx) => {
+        for (const pattern of secretPatterns) {
+          if (pattern.test(line)) {
+              console.log(chalk.red(`🚨 Possible secret found in ${filePath} at line ${idx + 1}`));
+            console.log(`🔎 Matched Line: ${line.trim()}`);
+            fileHasSecret = true;
+          }
         }
-      }
+      });
+      
     } catch (err) {
       console.warn(chalk.yellow(`⚠️ Skipped unreadable file: ${filePath}`));
     }
@@ -68,5 +74,4 @@ function scanFilesForSecrets(files = []) {
 
   return found;
 }
-
 module.exports = scanFilesForSecrets;
