@@ -16,7 +16,7 @@
 ## 🚀 Features
 
 - 🔍 **Comprehensive scanning** of staged files for sensitive data
-- 🧠 Detects over **30+ secret patterns**
+- 🧠 Detects over **127+ secret patterns**
 - ⚡ **Fast and efficient** CLI execution
 - 🎨 **Colorful logs** using Chalk
 - 🔄 Easy integration with Git hooks and CI/CD
@@ -79,17 +79,92 @@ This will scan your **staged files** (those added via `git add`) for any potenti
 
 ## 🧠 Supported Secret Patterns
 
-SecretShield currently detects:
+SecretShield currently detects over 127 patterns across multiple categories:
+
+### 🔑 Authentication & Security
 
 - ✅ API Keys (Google, Twitter, Facebook, etc.)
-- ✅ Cloud Provider Keys (AWS, GCP, Azure)
-- ✅ Database Credentials (Postgres, MongoDB, MySQL, SQL Server)
-- ✅ Payment Gateways (Stripe, PayPal)
 - ✅ JWT and OAuth Tokens
-- ✅ Email Services (SendGrid, Mailchimp)
-- ✅ Private Keys and Certificates
-- ✅ Infrastructure Secrets (Docker, Kubernetes)
-- ✅ And many more...
+- ✅ 2FA/MFA Secrets
+- ✅ PGP/GPG Keys
+- ✅ SSH Private Keys
+- ✅ SSL Certificates
+
+### ☁️ Cloud Services
+
+- ✅ AWS (Access Keys, Secret Keys, Session Tokens)
+- ✅ Azure (Keys, Secrets, Tokens)
+- ✅ Google Cloud Platform
+- ✅ Firebase & Supabase
+- ✅ Vercel & Netlify
+- ✅ Digital Ocean, Heroku, Vultr, Linode
+- ✅ Alibaba Cloud, Oracle Cloud, IBM Cloud
+
+### 💾 Database & Storage
+
+- ✅ MongoDB, MySQL, PostgreSQL
+- ✅ Redis, RabbitMQ, Cassandra
+- ✅ Elasticsearch, Neo4j
+- ✅ S3, CloudFront, Rackspace
+- ✅ Backblaze Storage
+
+### 💳 Payment Processing
+
+- ✅ Stripe (Secret & Publishable Keys)
+- ✅ PayPal (Client ID & Secret)
+- ✅ Square, Braintree, Adyen
+- ✅ Klarna, Wise
+
+### 📱 Social Media & Communication
+
+- ✅ Twitter, Facebook, Instagram
+- ✅ LinkedIn, Discord, Telegram
+- ✅ Slack, TikTok, Pinterest
+- ✅ Twitch, Reddit, Snapchat
+
+### 📧 Email Services
+
+- ✅ SendGrid, Mailchimp
+- ✅ Mailgun, Postmark
+- ✅ Amazon SES, SparkPost
+- ✅ SMTP Credentials
+
+### 🛠️ DevOps & Infrastructure
+
+- ✅ Docker, Kubernetes
+- ✅ GitHub, GitLab, Bitbucket
+- ✅ Jenkins, Travis CI, CircleCI
+- ✅ Ansible Vault, Terraform
+- ✅ Cloudflare
+
+### 📊 Analytics & Monitoring
+
+- ✅ Mixpanel, Segment
+- ✅ Amplitude, Datadog
+- ✅ New Relic
+
+### 🔍 Search & Cache
+
+- ✅ Algolia, Elastic
+- ✅ Memcached
+
+### 🗺️ Maps & Location
+
+- ✅ Google Maps
+- ✅ Mapbox, TomTom
+
+### 📞 SMS & Voice
+
+- ✅ Twilio (Auth Token, Account SID)
+- ✅ Nexmo (Vonage)
+- ✅ Plivo, Sinch
+
+### 🔄 Generic Patterns
+
+- ✅ Connection Strings
+- ✅ Credential URLs
+- ✅ Generic Secrets & Keys
+- ✅ Private Key Files
 
 🔧 You can also **customize the regex** for your org in future versions!
 
@@ -117,6 +192,23 @@ Or use tools like [husky](https://github.com/typicode/husky) to integrate it smo
 If you discover a vulnerability or a false negative, **please do not report it publicly.**
 Instead, reach out securely:
 📧 **[support@decodedev.in](mailto:support@decodedev.in)**
+
+---
+
+## 🚫 Ignoring Specific Lines
+
+If you need to ignore a specific line that contains a secret (for example, if it's a test value or a public key), you can add a special comment to that line. SecretShield will skip any line that contains this comment.
+
+### Supported Comment Formats:
+
+```javascript
+const API_KEY = "test-key-123"; // secretshield: safe to push
+const DB_PASSWORD = "test-pass-456"; /* secretshield: safe to push */
+const SECRET_TOKEN = "test-token-789"; /*secretshield: safe to push */
+const AUTH_KEY = "test-auth-012"; //secretshield: safe to push
+```
+
+> ⚠️ **Important**: Use this feature carefully and only for legitimate cases where the secret is safe to commit (like test values, public keys, or intentionally public tokens).
 
 ---
 

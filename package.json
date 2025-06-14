@@ -1,6 +1,6 @@
 {
   "name": "secretshield",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "🛡️ SecretShield is a CLI tool that detects API keys and sensitive credentials before you commit code.",
   "main": "index.js",
   "bin": {
