@@ -1,18 +1,28 @@
 {
   "name": "secretshield",
   "version": "1.0.0",
-  "bin": {
-    "secretshield": "./bin/index.js"
-  },
-  "description": "",
+  "description": "🛡️ SecretShield is a CLI tool that detects API keys and sensitive credentials before you commit code.",
   "main": "index.js",
+  "bin": {
+    "secretshield": "bin/index.js"
+  },
   "type": "commonjs",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node bin/index.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "cli",
+    "git",
+    "pre-commit",
+    "secrets",
+    "security",
+    "api-key",
+    "credentials",
+    "secret-detection",
+    "hook"
+  ],
+  "author": "Arun Singh Pundir - DeCodeDev",
+  "license": "MIT",
   "dependencies": {
     "chalk": "^4.1.2"
   }
