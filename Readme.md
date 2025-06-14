@@ -6,10 +6,10 @@
 
 ---
 
-![npm](https://img.shields.io/npm/v/secret-shield?color=blue)
-![license](https://img.shields.io/github/license/yourusername/secretshield)
-![issues](https://img.shields.io/github/issues/yourusername/secretshield)
-![downloads](https://img.shields.io/npm/dt/secret-shield)
+![npm](https://img.shields.io/npm/v/secretshield?color=blue)
+![license](https://img.shields.io/github/license/Arunsinghpundir/secretshield)
+![issues](https://img.shields.io/github/issues/Arunsinghpundir/secretshield)
+![downloads](https://img.shields.io/npm/dt/secretshield)
 
 ---
 
